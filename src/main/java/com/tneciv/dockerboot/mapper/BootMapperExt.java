@@ -15,5 +15,5 @@ public interface BootMapperExt extends BootMapper {
             "#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, ",
             "#{memoRest,jdbcType=VARCHAR})"
     })
-    int insertBoot(Boot record);
+    int insertSth(Boot record);
 }

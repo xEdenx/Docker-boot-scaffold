@@ -1,8 +1,8 @@
 package com.tneciv.dockerboot.service.impl;
 
-import com.tneciv.dockerboot.dao.BootMapper;
 import com.tneciv.dockerboot.entity.Boot;
 import com.tneciv.dockerboot.entity.BootExample;
+import com.tneciv.dockerboot.mapper.BootMapperExt;
 import com.tneciv.dockerboot.service.IndexService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ public class IndexServiceImpl implements IndexService {
     Logger logger = LoggerFactory.getLogger(IndexServiceImpl.class);
 
     @Autowired
-    BootMapper bootMapper;
+    BootMapperExt bootMapper;
 
     @Override
     public List<Boot> doSth() {
@@ -32,5 +32,11 @@ public class IndexServiceImpl implements IndexService {
         }
         return boots;
     }
+
+    @Override
+    public void insertSth(Boot boot) {
+        bootMapper.insertSth(boot);
+    }
+
 
 }

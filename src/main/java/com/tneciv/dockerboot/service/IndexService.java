@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface IndexService {
     List<Boot> doSth();
+
+    void insertSth(Boot boot);
 }
