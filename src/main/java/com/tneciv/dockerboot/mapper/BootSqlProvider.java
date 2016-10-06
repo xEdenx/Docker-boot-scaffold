@@ -1,13 +1,12 @@
-package com.tneciv.dockerboot.dao;
+package com.tneciv.dockerboot.mapper;
 
 import com.tneciv.dockerboot.entity.Boot;
-import com.tneciv.dockerboot.entity.BootExample;
 import com.tneciv.dockerboot.entity.BootExample.Criteria;
 import com.tneciv.dockerboot.entity.BootExample.Criterion;
-import org.apache.ibatis.jdbc.SQL;
-
+import com.tneciv.dockerboot.entity.BootExample;
 import java.util.List;
 import java.util.Map;
+import org.apache.ibatis.jdbc.SQL;
 
 public class BootSqlProvider {
 

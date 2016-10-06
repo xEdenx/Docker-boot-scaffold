@@ -1,4 +1,4 @@
-package com.tneciv.dockerboot.dao;
+package com.tneciv.dockerboot.mapper;
 
 import com.tneciv.dockerboot.entity.Boot;
 import com.tneciv.dockerboot.entity.BootExample;

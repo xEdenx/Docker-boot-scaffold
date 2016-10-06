@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@MapperScan("com.tneciv.dockerboot.dao")
+@MapperScan("com.tneciv.dockerboot.mapper")
 public class DockerBootApplication {
     Logger logger = LoggerFactory.getLogger(DockerBootApplication.class);
 
