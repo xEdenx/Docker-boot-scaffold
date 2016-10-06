@@ -3,6 +3,8 @@ package com.tneciv.dockerboot.service.impl;
 import com.tneciv.dockerboot.dao.BootMapper;
 import com.tneciv.dockerboot.entity.Boot;
 import com.tneciv.dockerboot.service.IndexService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IndexServiceImpl implements IndexService {
+
+    Logger logger = LoggerFactory.getLogger(IndexServiceImpl.class);
+
     @Autowired
     BootMapper bootMapper;
 
@@ -24,4 +29,5 @@ public class IndexServiceImpl implements IndexService {
         Boot boot = bootMapper.selectByPrimaryKey(2);
         return boot;
     }
+    
 }
