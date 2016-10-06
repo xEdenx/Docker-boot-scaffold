@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class IndexViewController {
-    @RequestMapping("/htmlIndex")
+    @RequestMapping("/")
     public String redirectToIndex() {
         return "index";
     }
