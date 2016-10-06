@@ -2,7 +2,8 @@ package com.tneciv.dockerboot.dao;
 
 import com.tneciv.dockerboot.entity.Boot;
 import com.tneciv.dockerboot.entity.BootExample;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.type.JdbcType;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @SelectProvider(type=BootSqlProvider.class, method="countByExample")
     long countByExample(BootExample example);
 
     /**
@@ -21,6 +23,7 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @DeleteProvider(type=BootSqlProvider.class, method="deleteByExample")
     int deleteByExample(BootExample example);
 
     /**
@@ -29,6 +32,10 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @Delete({
+        "delete from boot",
+        "where id = #{id,jdbcType=INTEGER}"
+    })
     int deleteByPrimaryKey(Integer id);
 
     /**
@@ -37,6 +44,14 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @Insert({
+        "insert into boot (id, boot, ",
+        "name, description, ",
+        "memo_rest)",
+        "values (#{id,jdbcType=INTEGER}, #{boot,jdbcType=VARCHAR}, ",
+        "#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, ",
+        "#{memoRest,jdbcType=VARCHAR})"
+    })
     int insert(Boot record);
 
     /**
@@ -45,6 +60,7 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @InsertProvider(type=BootSqlProvider.class, method="insertSelective")
     int insertSelective(Boot record);
 
     /**
@@ -53,6 +69,14 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @SelectProvider(type=BootSqlProvider.class, method="selectByExample")
+    @ConstructorArgs({
+        @Arg(column="id", javaType=Integer.class, jdbcType=JdbcType.INTEGER, id=true),
+        @Arg(column="boot", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="name", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="description", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="memo_rest", javaType=String.class, jdbcType=JdbcType.VARCHAR)
+    })
     List<Boot> selectByExample(BootExample example);
 
     /**
@@ -61,6 +85,19 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @Select({
+        "select",
+        "id, boot, name, description, memo_rest",
+        "from boot",
+        "where id = #{id,jdbcType=INTEGER}"
+    })
+    @ConstructorArgs({
+        @Arg(column="id", javaType=Integer.class, jdbcType=JdbcType.INTEGER, id=true),
+        @Arg(column="boot", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="name", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="description", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="memo_rest", javaType=String.class, jdbcType=JdbcType.VARCHAR)
+    })
     Boot selectByPrimaryKey(Integer id);
 
     /**
@@ -69,6 +106,7 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @UpdateProvider(type=BootSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") Boot record, @Param("example") BootExample example);
 
     /**
@@ -77,6 +115,7 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @UpdateProvider(type=BootSqlProvider.class, method="updateByExample")
     int updateByExample(@Param("record") Boot record, @Param("example") BootExample example);
 
     /**
@@ -85,6 +124,7 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @UpdateProvider(type=BootSqlProvider.class, method="updateByPrimaryKeySelective")
     int updateByPrimaryKeySelective(Boot record);
 
     /**
@@ -93,5 +133,13 @@ public interface BootMapper {
      *
      * @mbg.generated
      */
+    @Update({
+        "update boot",
+        "set boot = #{boot,jdbcType=VARCHAR},",
+          "name = #{name,jdbcType=VARCHAR},",
+          "description = #{description,jdbcType=VARCHAR},",
+          "memo_rest = #{memoRest,jdbcType=VARCHAR}",
+        "where id = #{id,jdbcType=INTEGER}"
+    })
     int updateByPrimaryKey(Boot record);
 }

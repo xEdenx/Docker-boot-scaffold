@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by Tneciv on 2016/10/5.
  */
@@ -23,18 +25,17 @@ public class IndexRestController {
     IndexService indexService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/restIndex")
-    public ResEnv<Boot> getInfo() {
-
-        Boot boot;
+    public ResEnv<List<Boot>> getInfo() {
+        List<Boot> boots;
         try {
-            boot = this.indexService.doSth();
+            boots = this.indexService.doSth();
         } catch (ApplicationException e) {
             return ResEnv.fail(e.getMessage());
         } catch (Exception e) {
             logger.error(e.getMessage());
             return ResEnv.fail("获取数据异常");
         }
-        return ResEnv.success(boot);
+        return ResEnv.success(boots);
     }
 
 }
