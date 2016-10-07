@@ -8,7 +8,7 @@
          2、 
     -->
     <logger name="org.springframework.web" level="DEBUG"/>
-
+    <logger name="org.mybatis" level="INFO"/>
     <!-- mybatis日志打印 -->
     <!--<logger name="com.ibatis" level="DEBUG" /> -->
     <!--<logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" /> -->
