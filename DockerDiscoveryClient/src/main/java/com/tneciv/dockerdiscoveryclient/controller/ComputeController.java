@@ -20,10 +20,10 @@ public class ComputeController {
     DiscoveryClient client;
 
     @RequestMapping(value = "/addService", method = RequestMethod.GET)
-    public Integer addNum(@RequestParam int i, @RequestParam int j) {
+    public Integer addNum(@RequestParam int a, @RequestParam int b) {
         ServiceInstance instance = client.getLocalServiceInstance();
         log.info("/addService , host: " + instance.getHost()
                 + ", Service Id :" + instance.getServiceId());
-        return i + j;
+        return a + b;
     }
 }
