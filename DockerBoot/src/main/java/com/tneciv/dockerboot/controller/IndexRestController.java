@@ -4,6 +4,9 @@ import com.tneciv.dockerboot.common.ApplicationException;
 import com.tneciv.dockerboot.common.ResEnv;
 import com.tneciv.dockerboot.entity.Boot;
 import com.tneciv.dockerboot.service.IndexService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,9 @@ public class IndexRestController {
     @Autowired
     IndexService indexService;
 
+    @ApiOperation(value = "TestRestfulApi", notes = "Show Restapi demo")
+    @ApiImplicitParams(@ApiImplicitParam(name = "restIndex", value = "nothing"
+            , required = true, dataType = "nothing"))
     @RequestMapping(method = RequestMethod.GET, value = "/restIndex")
     public ResEnv<List<Boot>> getInfo() {
         List<Boot> boots;
