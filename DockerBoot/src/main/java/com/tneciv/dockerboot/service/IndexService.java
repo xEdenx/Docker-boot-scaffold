@@ -11,4 +11,6 @@ public interface IndexService {
     List<Boot> doSth();
 
     void insertSth(Boot boot);
+
+    List<Boot> testRedisCache();
 }
