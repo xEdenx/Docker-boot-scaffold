@@ -3,3 +3,4 @@ A maven project with Spring-boot .
 * Swagger2
 * Feign , Ribbon
 * Eureka
+* Redis
