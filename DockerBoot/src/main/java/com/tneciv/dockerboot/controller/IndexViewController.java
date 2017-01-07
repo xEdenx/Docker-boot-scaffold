@@ -15,6 +15,6 @@ public class IndexViewController {
 
     @RequestMapping("/")
     public String redirectToIndex() {
-        return "index";
+        return "Index";
     }
 }
