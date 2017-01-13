@@ -4,3 +4,5 @@ A maven project with Spring-boot .
 * Feign , Ribbon
 * Eureka
 * Redis
+* Oauth2 
+* RabbitMQ
