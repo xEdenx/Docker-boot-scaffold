@@ -10,8 +10,8 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 public class IndexRestController {
 
-    Logger logger = LoggerFactory.getLogger(IndexRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(IndexRestController.class);
 
     @Autowired
     IndexService indexService;
@@ -31,7 +31,7 @@ public class IndexRestController {
     @ApiOperation(value = "TestRestfulApi", notes = "Show Restapi demo")
     @ApiImplicitParams(@ApiImplicitParam(name = "restIndex", value = "nothing"
             , required = true, dataType = "nothing"))
-    @RequestMapping(method = RequestMethod.GET, value = "/restIndex")
+    @GetMapping(value = "/restIndex")
     public ResEnv<List<Boot>> getInfo() {
         List<Boot> boots;
         try {
@@ -39,7 +39,7 @@ public class IndexRestController {
         } catch (ApplicationException e) {
             return ResEnv.fail(e.getMessage());
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error("Error info is : {}", e.getMessage());
             return ResEnv.fail("获取数据异常");
         }
         return ResEnv.success(boots);

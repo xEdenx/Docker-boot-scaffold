@@ -19,10 +19,10 @@ import java.util.List;
 @Service
 public class IndexServiceImpl implements IndexService {
 
-    Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger logger = LoggerFactory.getLogger(IndexServiceImpl.class);
 
     @Autowired
-    BootMapperExt bootMapper;
+    private BootMapperExt bootMapper;
 
     @Override
     public List<Boot> doSth() {
@@ -31,7 +31,7 @@ public class IndexServiceImpl implements IndexService {
         bootExample.createCriteria().andDescriptionIsNotNull();
         List<Boot> boots = bootMapper.selectByExample(bootExample);
         for (Boot boot : boots) {
-            logger.debug("name : " + boot.getName());
+            logger.debug("Boot name is : {}", boot.getName());
         }
         return boots;
     }
